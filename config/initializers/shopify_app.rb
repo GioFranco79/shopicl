@@ -10,8 +10,8 @@ ShopifyApp.configure do |config|
 
   config.reauth_on_access_scope_changes = true
 
-  config.api_key = ENV.fetch('SHOPIFY_API_KEY', '').presence
-  config.secret = ENV.fetch('SHOPIFY_API_SECRET', '').presence
+  config.api_key = ENV.fetch('SHOPIFY_API_KEY', 'd18f3374529837dbbc2a0f323572e60b').presence
+  config.secret = ENV.fetch('SHOPIFY_API_SECRET', '906dadae6af6291c75d4af839d909c85').presence
 
   if defined? Rails::Server
     raise('Missing SHOPIFY_API_KEY. See https://github.com/Shopify/shopify_app#requirements') unless config.api_key
@@ -25,7 +25,7 @@ Rails.application.config.after_initialize do
       api_key: ShopifyApp.configuration.api_key,
       api_secret_key: ShopifyApp.configuration.secret,
       api_version: ShopifyApp.configuration.api_version,
-      host_name: URI(ENV.fetch('HOST', '')).host || '',
+      host_name: URI(ENV.fetch('HOST', 'https://dry-brook-91362.herokuapp.com/')).host || '',
       scope: ShopifyApp.configuration.scope,
       is_private: !ENV.fetch('SHOPIFY_APP_PRIVATE_SHOP', '').empty?,
       is_embedded: ShopifyApp.configuration.embedded_app,
