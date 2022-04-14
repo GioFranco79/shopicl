@@ -25,7 +25,7 @@ Rails.application.config.after_initialize do
       api_key: ShopifyApp.configuration.api_key,
       api_secret_key: ShopifyApp.configuration.secret,
       api_version: ShopifyApp.configuration.api_version,
-      host_name: URI(ENV.fetch('HOST', 'https://dry-brook-91362.herokuapp.com')).host || '',
+      host_name: URI(ENV.fetch('HOST', 'https://shopazocl.herokuapp.com')).host || '',
       scope: ShopifyApp.configuration.scope,
       is_private: !ENV.fetch('SHOPIFY_APP_PRIVATE_SHOP', '').empty?,
       is_embedded: ShopifyApp.configuration.embedded_app,
